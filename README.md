@@ -1,4 +1,4 @@
-# Proyecto Nuclora
+# Proyecto Nuclora ⚠️ **[EN CONSTRUCCIÓN]**
 ## Universidad de Oviedo - Cátedra Thin5G
 
 <p align="center">
