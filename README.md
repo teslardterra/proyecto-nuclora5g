@@ -2,7 +2,7 @@
 ## Universidad de Oviedo - Cátedra Thin5G
 
 <p align="center">
-  <img src="nuclora_logo.png" alt="Mi Logo" width="300">
+  <img src="nuclora_loHgo.png" alt="Mi Logo" width="300">
 </p>
 
 <p align="center">
