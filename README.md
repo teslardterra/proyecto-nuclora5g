@@ -18,7 +18,7 @@ Este proyecto ha sido realizado como parte del TFG de "D.A.S", alumno de la Escu
 
 ## 📖 Documentación
 
-Puedes encontrar la documentación completa en el directorio [`docs/`](docs/). A continuación, algunos enlaces directos:
+Puedes encontrar la documentación completa en el directorio [`docs/`](docs/). También puedes valerte de los siguientes enlaces directos:
 
 - 📌 [Descripción](docs/descripcion.md)  
 - ⚙️ [Instalación](docs/instalacion.md)  
