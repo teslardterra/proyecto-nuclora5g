@@ -8,9 +8,10 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.9%2B-blue?style=for-the-badge&logo=python">
   <img src="https://img.shields.io/badge/LoRaWAN-IoT-green?style=for-the-badge&logo=wifi">
-  <img src="https://img.shields.io/badge/5G-Network-red?style=for-the-badge&logo=signal">
+  <img src="https://img.shields.io/badge/5G-Network-red?style=for-the-badge&logo=globe">
   <img src="https://img.shields.io/badge/Versión-1.0.0-brightgreen?style=for-the-badge">
 </p>
+
 
 El proyecto Nuclora consiste en un gestor de autenticaciones y transmisiones unidireccionales para dispositivos que utilizan tecnología LoRa a través de redes IoT globales, como The Things Network (TTN), o redes locales. Aunque puede funcionar de manera independiente, ha sido diseñado para integrarse en los sistemas que dan servicio a los distintos componentes de un núcleo 5G. Su arquitectura imita los sistemas de seguridad del 5G, pero adaptados a la transmisión unidireccional de datos mínimos, tal como se espera de los dispositivos conectados a una red LoRaWAN.
 
