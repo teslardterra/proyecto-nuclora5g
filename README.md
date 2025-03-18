@@ -8,7 +8,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.9%2B-blue?style=for-the-badge&logo=python">
   <img src="https://img.shields.io/badge/LoRaWAN-IoT-green?style=for-the-badge&logo=wifi">
-  <img src="https://img.shields.io/badge/5G-IOT Integration-deepskyblue?style=for-the-badge&logo=globe">
+  <img src="https://img.shields.io/badge/5G-IOT Integration-steelblue?style=for-the-badge&logo=globe">
   <img src="https://img.shields.io/badge/Versión-0.9.0-brightgreen?style=for-the-badge">
 </p>
 
