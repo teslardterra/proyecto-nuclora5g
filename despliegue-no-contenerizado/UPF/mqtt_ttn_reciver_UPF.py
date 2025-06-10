@@ -2,20 +2,34 @@ import paho.mqtt.client as mqtt
 import logging
 import json
 import socket
+import base64
 
 # Configuración de logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Constantes de conexión MQTT
-BROKER_URL = "eu1.cloud.thethings.network"
+BROKER_URL = "eu1.cloud.thethings.network" #broker para europa, cambiar en otras regiones
 BROKER_PORT = 1883
-TOPIC = "v3/loranero@ttn/devices/+/up"
-USERNAME = "loranero@ttn"
-PASSWORD = "NNSXS.5GGQYVB2T5CUN4Q6JZ3Q3R2WCOZMQTJRSMQUZ5Y.RESRY7H4YKWWUJCOHPSKIFG4VDDI7N6W37BHS4L4IFFKMKDGSEMA"
+TOPIC = "topico"
+USERNAME = "mi_usuario"
+PASSWORD = "mi_password"
+
+
+
+def get_local_ip():
+    """Obtiene la IP local asignada al contenedor dentro de la red Docker."""
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    try:
+        s.connect(("8.8.8.8", 80))
+        ip = s.getsockname()[0]
+    finally:
+        s.close()
+    return ip
+
 
 # Configuración de destino TCP
-TCP_IP = "192.168.70.134"
-TCP_PORT = 5568
+TCP_IP = get_local_ip()
+TCP_PORT = 5051
 TCP_ADDR = (TCP_IP, TCP_PORT)
 
 # Funciones de callback
@@ -33,9 +47,17 @@ def on_message(client, userdata, message):
     try:
         payload_dict = json.loads(message.payload.decode("utf-8"))
         logging.info(f"Mensaje recibido en el topic: {message.topic}")
-        print(payload_dict)
-
-        send_to_tcp_server(payload_dict)
+        
+        # Extraer el frm_payload codificado en Base64
+        frm_payload_base64 = payload_dict['uplink_message']['frm_payload']
+        
+        # Decodificar el payload de Base64 a bytes
+        payload_bytes = base64.b64decode(frm_payload_base64)
+        logging.info(f"Payload decodificado (en bytes): {payload_bytes}")
+        print("En hexadecimal:", payload_bytes.hex())
+        # Enviar el array de bytes al servidor TCP
+        send_to_tcp_server(payload_bytes)
+        
     except Exception as e:
         logging.error(f"Error al procesar el mensaje: {e}")
 
@@ -47,8 +69,8 @@ def send_to_tcp_server(data):
     try:
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
             sock.connect(TCP_ADDR)
-            json_data = json.dumps(data)
-            sock.send(json_data.encode("utf-8"))
+            sock.send(data)  # Enviar los bytes directamente
+            logging.info("Datos enviados al servidor TCP.")
     except socket.error as e:
         logging.error(f"Error de socket: {e}")
 
