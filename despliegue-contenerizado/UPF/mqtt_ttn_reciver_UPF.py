@@ -10,9 +10,9 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 # Constantes de conexión MQTT
 BROKER_URL = "eu1.cloud.thethings.network"
 BROKER_PORT = 1883
-TOPIC = "v3/loranero@ttn/devices/+/up"
-USERNAME = "loranero@ttn"
-PASSWORD = "NNSXS.5GGQYVB2T5CUN4Q6JZ3Q3R2WCOZMQTJRSMQUZ5Y.RESRY7H4YKWWUJCOHPSKIFG4VDDI7N6W37BHS4L4IFFKMKDGSEMA"
+TOPIC = "topico"
+USERNAME = "mi_usuario"
+PASSWORD = "mi_password"
 
 
 
