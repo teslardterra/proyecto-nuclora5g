@@ -8,7 +8,7 @@ import base64
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Constantes de conexión MQTT
-BROKER_URL = "eu1.cloud.thethings.network"
+BROKER_URL = "eu1.cloud.thethings.network" #URL para europa, cambiar en otras regiones
 BROKER_PORT = 1883
 TOPIC = "topico"
 USERNAME = "mi_usuario"
