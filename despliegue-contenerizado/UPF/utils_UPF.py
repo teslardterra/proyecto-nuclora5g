@@ -1,7 +1,7 @@
 import socket
 import json
 
-ADDR_NRF = (socket.gethostbyname("oai-nrf"), 5050)
+ADDR_NRF = (socket.gethostbyname("contenedor-nrf"), 5050)
 
 def receive_data(conn, buffer_size=1024):
     """
