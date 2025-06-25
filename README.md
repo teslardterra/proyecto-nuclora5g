@@ -57,14 +57,12 @@ El proyecto puede utilizarse en tres formas principales:
 
 ## 📖 Documentación
 
-Puedes encontrar la documentación completa en el directorio [`docs/`](docs/). También puedes valerte de los siguientes enlaces directos:
+Puedes encontrar la documentación completa en el directorio [`docs/`](docs/). También puede valerse de los siguientes enlaces directos:
 
-- 📌 [Descripción](docs/descripcion.md)  
-- ⚙️ [Instalación](docs/instalacion.md)  
-- 🔧 [Configuración](docs/configuracion.md)  
-- 🚀 [Guía de Uso](docs/uso.md)  
-- 🤝 [Contribución](docs/contribucion.md)  
-- 📜 [Licencia](docs/licencia.md)  
+- 📌 [Arquitectura de la integración](docs/arquitectura.md)
+- 📌 [Protocolo de Comunicaciones Unidireccionales Seguras](docs/protocolo.md)   
+- ⚙️ [Despliegue y Configuración](docs/instalacion.md)  
+- 📜 [Licencia](licencia.md)  
 
 Para más detalles sobre el proyecto, revisa los archivos en `docs/`.
 
