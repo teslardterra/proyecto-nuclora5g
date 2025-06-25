@@ -1,4 +1,4 @@
-# Integración de redes 5G y LoRaWAN
+# Arquitectura de Red Integrada 5G-LoRaWAN
 
 Para la integración, se parte de la base de que se mantienen intactas tanto la estructura principal de la red 5G como de la red LoRaWAN. La idea consiste en sustituir el servidor de aplicaciones final de la red LoRaWAN (gestor final) por el UPF, por ser el único componente del núcleo 5G con acceso a redes exteriores.
 
