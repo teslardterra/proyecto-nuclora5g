@@ -16,27 +16,19 @@
 
 Este proyecto tiene como objetivo desarrollar un sistema **5G-LoRaWAN integrado y seguro**, capaz de gestionar de forma conjunta las transmisiones unidireccionales provenientes de dispositivos IoT dentro de una red LoRaWAN, utilizando funcionalidades inspiradas en redes 5G y garantizando altos estándares de seguridad.
 
-## 1.2 Objetivos
+## 🎯 Objetivos
 
-Las motivaciones expuestas llevan a la búsqueda de un sistema integrado que cumpla con los siguientes objetivos:
+Las motivaciones del proyecto se resumen en la búsqueda de un sistema integrado que cumpla con los siguientes objetivos:
 
-### 1.2.1 Objetivo Principal
+### Objetivo Principal
 
 Obtener un sistema o entorno **5G-LoRaWAN integrado y seguro** capaz de gestionar las transmisiones unidireccionales provenientes de dispositivos IoT, que formen parte de una red LoRaWAN, tanto a nivel de datos como de autenticación, mediante el uso de los componentes y la arquitectura de red de un núcleo 5G standalone.
 
-### 1.2.2 Objetivos Secundarios
+### Objetivos Secundarios
 
 1. Crear un protocolo de comunicaciones para transmisiones unidireccionales que garantice la integridad, autenticación y confidencialidad de las mismas, aplicable a transmisiones provenientes de dispositivos IoT en redes LoRaWAN.
 
 2. Imitar, en lo posible, las funciones de los componentes de un núcleo 5G Standalone durante la gestión de las transmisiones provenientes de dispositivos IoT u otras transmisiones unidireccionales.
-
-## 🎯 Objetivo General
-
-Diseñar e implementar un sistema que:
-
-- Permita la **gestión segura de comunicaciones unidireccionales** provenientes de dispositivos LoRaWAN.
-- Imite funciones y aproveche componentes de una red **5G** para mejorar la eficiencia, escalabilidad y control del sistema.
-- Garantice la **seguridad de las transmisiones**, respetando las limitaciones propias de la tecnología LoRaWAN.
 
 ## 🔐 Protocolo de Comunicaciones Seguras
 
