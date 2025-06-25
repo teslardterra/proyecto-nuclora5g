@@ -4,11 +4,11 @@ Para la integración, se parte de la base de que se mantienen intactas tanto la 
 
 El proceso de autenticación y sesión inicial mediante transmisiones bidireccionales entre el dispositivo LoRaWAN y su servidor de red LoRaWAN se mantiene idéntico al explicado en la sección anterior y se presupone seguro. Ahora bien, una vez autenticado en su servidor de red, los mensajes de datos unidireccionales de la red LoRaWAN que serán recibidos por el servidor de red y compartidos al servidor de aplicaciones, ahora el UPF, seguirán dos nuevos formatos. Estos mensajes de datos LoRaWAN pasan a dividirse en mensajes de autenticación de la red integrada y mensajes de datos de la red integrada. En las figuras siguientes se ilustran los procesos descritos.
 
-![Flujo de mensajes de autenticación LoRaWAN](TFG_latex/Texto/Desarrollo/Figuras/authlorawan.png)
+![Flujo de mensajes de autenticación LoRaWAN](authlorawan.png)
 
 *Figura 1: Flujo de mensajes de autenticación LoRaWAN*
 
-![Nuevos mensajes de la red integrada](TFG_latex/Texto/Desarrollo/Figuras/datoslorawan.png)
+![Nuevos mensajes de la red integrada](MensajesRedIntegrada.png)
 
 *Figura 2: Nuevos mensajes de la red integrada*
 
@@ -28,9 +28,8 @@ Los mensajes, ya sean de autenticación como de datos, viajarán cifrados y se g
 
 La arquitectura de la integración, los componentes originales de las redes 5G y LoRaWAN y aquellos añadidos o modificados, se representan en la siguiente figura.
 
-![Arquitectura de Red Integrada 5G-LoRaWAN](TFG_latex/Texto/Desarrollo/Figuras/EsquemaBaseTotal.png)
+![Arquitectura de Red Integrada 5G-LoRaWAN](ArquitecturaRedIntegrada.png)
 
 *Figura 3: Arquitectura de Red Integrada 5G-LoRaWAN*
 
 En las siguientes secciones, se profundizará en cada uno de los campos mencionados en esta sección. Comenzando por los tipos de mensajes de la red integrada, es decir, aquellos provenientes de la red LoRaWAN pero con nuevo formato, para seguir con los campos de las distintas nuevas bases de datos, procesos de cifrado, flujos de mensajes, etc.
-
