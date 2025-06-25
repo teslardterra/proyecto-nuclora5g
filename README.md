@@ -55,8 +55,6 @@ El proyecto puede utilizarse en tres formas principales:
    El protocolo, por su naturaleza independiente, puede ser utilizado para gestionar cualquier tipo de transmisión undireccional en cualquier tipo de red, sin las limitaciones propias de LoRaWAN, ya que, el protocolo solo requiere que los mensajes enviados por los dispositivos se adapten al formato del protocolo en su estructura básica, no existiendo límites reales para con el tamaño de los mensajes (fuera del sistema integrado o gestor LoRaWAN) y siendo facilmente adaptable a nuevas necesidades.
 ---
 
-Este proyecto ha sido realizado como parte del TFG de "D.A.S", alumno de la Escuela Politécnica de Ingeniería de Gijón, Universidad de Oviedo y bajo el amparo de la cátedra Thin5G de dicha universidad y los tutores "D.G.C" y "I.R.L".
-
 ## 📖 Documentación
 
 Puedes encontrar la documentación completa en el directorio [`docs/`](docs/). También puedes valerte de los siguientes enlaces directos:
