@@ -1,6 +1,8 @@
 # Proyecto Nuclora5G
 ## Universidad de Oviedo - Cátedra Thin5G
 
+Trabajo original desarrollado por Dan García Carrillo, Diego Arias Sal e Ignacio Rodriguez Larrad como parte de un proyecto en la Escuela Politécnica de Ingeniería de Gijón, Universidad de Oviedo, con la colaboración de la Cátedra Thin5G.
+
 <p align="center">
   <img src="nuclora5G_logo.png" alt="Mi Logo" width="300">
 </p>
