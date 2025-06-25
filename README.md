@@ -9,12 +9,41 @@
   <img src="https://img.shields.io/badge/Python-3.9%2B-blue?style=for-the-badge&logo=python">
   <img src="https://img.shields.io/badge/LoRaWAN-IoT-green?style=for-the-badge&logo=wifi">
   <img src="https://img.shields.io/badge/5G-IOT Integration-steelblue?style=for-the-badge&logo=globe">
-  <img src="https://img.shields.io/badge/Versión-0.9.0-brightgreen?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Versión-1.0.0-brightgreen?style=for-the-badge">
 </p>
 
-El proyecto Nuclora5G consiste en un gestor de autenticaciones y transmisiones unidireccionales para dispositivos que utilizan tecnología LoRa a través de redes IoT globales, como The Things Network (TTN), o redes locales. Aunque puede funcionar de manera independiente, ha sido diseñado para integrarse en los sistemas que dan servicio a los distintos componentes de un núcleo 5G. Su arquitectura imita los sistemas de seguridad del 5G, pero adaptados a la transmisión unidireccional de datos mínimos, tal como se espera de los dispositivos conectados a una red LoRaWAN.
+# 📡 Sistema 5G-LoRaWAN Integrado y Seguro
 
-Este proyecto ha sido realizado como parte del TFG de "D.A.S", alumno de la Escuela Politécnica de Ingeniería, Universidad de Oviedo y bajo el amparo de la cátedra Thin5G de dicha universidad.
+Este proyecto tiene como objetivo desarrollar un sistema **5G-LoRaWAN integrado y seguro**, capaz de gestionar de forma conjunta las transmisiones unidireccionales provenientes de dispositivos IoT dentro de una red LoRaWAN, utilizando funcionalidades inspiradas en redes 5G y garantizando altos estándares de seguridad.
+
+## 🎯 Objetivo
+
+Diseñar e implementar un sistema que:
+
+- Permita la **gestión segura de comunicaciones unidireccionales** provenientes de dispositivos LoRaWAN.
+- Imite funciones y aproveche componentes de una red **5G** para mejorar la eficiencia, escalabilidad y control del sistema.
+- Garantice la **seguridad de las transmisiones**, respetando las limitaciones propias de la tecnología LoRaWAN.
+
+## 🔐 Protocolo de Comunicaciones Seguras
+
+Con el fin de lograr estos objetivos, se ha diseñado un **nuevo protocolo de comunicaciones unidireccionales seguras**, el cual:
+
+- Cumple con las restricciones impuestas por LoRaWAN, como bajo ancho de banda y consumo energético reducido.
+- Sirve como guía para la implementación lógica del sistema integrado.
+- Puede ser desplegado de manera independiente como un **gestor seguro LoRaWAN**, o sobre componentes de un núcleo 5G como un **sistema 5G-LoRaWAN integrado y seguro**.
+
+## ⚙️ Modos de Despliegue
+
+El sistema puede utilizarse en dos formas:
+
+1. **Gestor seguro LoRaWAN independiente**  
+   Operación autónoma en redes LoRaWAN, aportando funciones de gestión y seguridad avanzadas.
+
+2. **Sistema 5G-LoRaWAN integrado**  
+   Integración con el núcleo de una red 5G, aprovechando su arquitectura para ofrecer una solución IoT segura, robusta y escalable.
+
+
+Este proyecto ha sido realizado como parte del TFG de "D.A.S", alumno de la Escuela Politécnica de Ingeniería de Gijón, Universidad de Oviedo y bajo el amparo de la cátedra Thin5G de dicha universidad.
 
 ## 📖 Documentación
 
