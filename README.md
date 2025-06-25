@@ -16,7 +16,21 @@
 
 Este proyecto tiene como objetivo desarrollar un sistema **5G-LoRaWAN integrado y seguro**, capaz de gestionar de forma conjunta las transmisiones unidireccionales provenientes de dispositivos IoT dentro de una red LoRaWAN, utilizando funcionalidades inspiradas en redes 5G y garantizando altos estándares de seguridad.
 
-## 🎯 Objetivo
+## 1.2 Objetivos
+
+Las motivaciones expuestas llevan a la búsqueda de un sistema integrado que cumpla con los siguientes objetivos:
+
+### 1.2.1 Objetivo Principal
+
+Obtener un sistema o entorno **5G-LoRaWAN integrado y seguro** capaz de gestionar las transmisiones unidireccionales provenientes de dispositivos IoT, que formen parte de una red LoRaWAN, tanto a nivel de datos como de autenticación, mediante el uso de los componentes y la arquitectura de red de un núcleo 5G standalone.
+
+### 1.2.2 Objetivos Secundarios
+
+1. Crear un protocolo de comunicaciones para transmisiones unidireccionales que garantice la integridad, autenticación y confidencialidad de las mismas, aplicable a transmisiones provenientes de dispositivos IoT en redes LoRaWAN.
+
+2. Imitar, en lo posible, las funciones de los componentes de un núcleo 5G Standalone durante la gestión de las transmisiones provenientes de dispositivos IoT u otras transmisiones unidireccionales.
+
+## 🎯 Objetivo General
 
 Diseñar e implementar un sistema que:
 
@@ -42,8 +56,9 @@ El sistema puede utilizarse en dos formas:
 2. **Sistema 5G-LoRaWAN integrado**  
    Integración con el núcleo de una red 5G, aprovechando su arquitectura para ofrecer una solución IoT segura, robusta y escalable.
 
+---
 
-Este proyecto ha sido realizado como parte del TFG de "D.A.S", alumno de la Escuela Politécnica de Ingeniería de Gijón, Universidad de Oviedo y bajo el amparo de la cátedra Thin5G de dicha universidad y los tutores "D.G.C" y "I.R.L"
+Este proyecto ha sido realizado como parte del TFG de "D.A.S", alumno de la Escuela Politécnica de Ingeniería de Gijón, Universidad de Oviedo y bajo el amparo de la cátedra Thin5G de dicha universidad y los tutores "D.G.C" y "I.R.L".
 
 ## 📖 Documentación
 
@@ -60,4 +75,4 @@ Para más detalles sobre el proyecto, revisa los archivos en `docs/`.
 
 ---
 
-📌 *Este proyecto está en desarrollo y sujeto a cambios.*  
+📌 *Este proyecto está en desarrollo y sujeto a cambios.*
