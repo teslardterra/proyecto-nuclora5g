@@ -14,11 +14,11 @@
 
 # 📡 Sistema 5G-LoRaWAN Integrado y Seguro
 
-Este proyecto tiene como objetivo desarrollar un sistema **5G-LoRaWAN integrado y seguro**, capaz de gestionar de forma conjunta las transmisiones unidireccionales provenientes de dispositivos IoT dentro de una red LoRaWAN, utilizando funcionalidades inspiradas en redes 5G y garantizando altos estándares de seguridad.
+Este proyecto tiene como objetivo desarrollar un sistema **5G-LoRaWAN integrado y seguro**, capaz de gestionar de forma conjunta las transmisiones unidireccionales provenientes de dispositivos IoT dentro de una red LoRaWAN, utilizando funcionalidades inspiradas en redes 5G, garantizando la seguridad de las transmisiones y funcionando sobre los componentes de un núcleo 5G standalone, buscando aprovechar su infraestructura y arquitectura.
+
+El proyecto busca ofrecer una primera solución que, en el futuro, facilite la gestión conjunta y segura de redes LoRaWAN y 5G en entornos que requieren el uso simultáneo de ambas tecnologías, como la industria, ciudades inteligentes, entre otros, sentando así una base sólida para el desarrollo de futuras iteraciones y mejoras del mismo.
 
 ## 🎯 Objetivos
-
-Las motivaciones del proyecto se resumen en la búsqueda de un sistema integrado que cumpla con los siguientes objetivos:
 
 ### Objetivo Principal
 
@@ -30,24 +30,27 @@ Obtener un sistema o entorno **5G-LoRaWAN integrado y seguro** capaz de gestiona
 
 2. Imitar, en lo posible, las funciones de los componentes de un núcleo 5G Standalone durante la gestión de las transmisiones provenientes de dispositivos IoT u otras transmisiones unidireccionales.
 
-## 🔐 Protocolo de Comunicaciones Seguras
+## 🔐 Protocolo de Comunicaciones Unidireccionales Seguras
 
 Con el fin de lograr estos objetivos, se ha diseñado un **nuevo protocolo de comunicaciones unidireccionales seguras**, el cual:
-
-- Cumple con las restricciones impuestas por LoRaWAN, como bajo ancho de banda y consumo energético reducido.
-- Sirve como guía para la implementación lógica del sistema integrado.
-- Puede ser desplegado de manera independiente como un **gestor seguro LoRaWAN**, o sobre componentes de un núcleo 5G como un **sistema 5G-LoRaWAN integrado y seguro**.
+- Se adapta a cualquier tipo de red o transmisión undireccional, siendo necesario solo que los mensajes enviados por los dispositivos sigan los formatos correctos indicados por el protocolo.
+- Permite cumplir con las limitaciones propias de redes como LoRaWAN, al requerir de bytes fijos mínimos en el formato requerido por la estructura sus mensajes.
+- Sirve como guía para la implementación lógica del sistema 5G-LoRaWAN integrado.
+- Aporta seguridad, confidencialidad e integridad a las transmisiones unidireccionales, imitando los protocolos y mecanismos de seguridad de las redes 5G.
 
 ## ⚙️ Modos de Despliegue
 
-El sistema puede utilizarse en dos formas:
+El proyecto puede utilizarse en tres formas principales:
 
-1. **Gestor seguro LoRaWAN independiente**  
-   Operación autónoma en redes LoRaWAN, aportando funciones de gestión y seguridad avanzadas.
+1. **Sistema 5G-LoRaWAN integrado seguro*  
+   Integración con el núcleo de una red 5G, aprovechando su arquitectura para ofrecer una solución IoT segura, robusta y escalable, de manera contenerizada o no.
 
-2. **Sistema 5G-LoRaWAN integrado**  
-   Integración con el núcleo de una red 5G, aprovechando su arquitectura para ofrecer una solución IoT segura, robusta y escalable.
+2. **Gestor seguro independiente de transmisiones LoRaWAN unidireccionales **  
+   Utiliza el protocolo de comunicaciones unidireccionales seguras para la gestión segura de transmisiones LoRaWAN unidireccionales, adaptando los mensajes enviados por los dispositivos IoT
+   al formato del protocolo.
 
+3. **Gestor seguro de transmisiones unidireccionales*  
+   El protocolo, por su naturaleza independiente, puede ser utilizado para gestionar cualquier tipo de transmisión undireccional en cualquier tipo de red, sin las limitaciones propias de LoRaWAN, ya que, el protocolo solo requiere que los mensajes enviados por los dispositivos se adapten al formato del protocolo en su estructura básica, no existiendo límites reales para con el tamaño de los mensajes (fuera del sistema integrado o gestor LoRaWAN) y siendo facilmente adaptable a nuevas necesidades.
 ---
 
 Este proyecto ha sido realizado como parte del TFG de "D.A.S", alumno de la Escuela Politécnica de Ingeniería de Gijón, Universidad de Oviedo y bajo el amparo de la cátedra Thin5G de dicha universidad y los tutores "D.G.C" y "I.R.L".
