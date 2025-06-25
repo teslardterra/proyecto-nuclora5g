@@ -14,9 +14,9 @@
 
 # 📡 Sistema 5G-LoRaWAN Integrado y Seguro
 
-Este proyecto tiene como objetivo desarrollar un sistema **5G-LoRaWAN integrado y seguro**, capaz de gestionar de forma conjunta las transmisiones unidireccionales provenientes de dispositivos IoT dentro de una red LoRaWAN, utilizando funcionalidades inspiradas en redes 5G, garantizando la seguridad de las transmisiones y funcionando sobre los componentes de un núcleo 5G standalone, buscando aprovechar su infraestructura y arquitectura.
+Este proyecto busca desarrollar un sistema **5G-LoRaWAN integrado y seguro**, capaz de gestionar de forma conjunta las transmisiones unidireccionales provenientes de dispositivos IoT dentro de una red LoRaWAN, utilizando funcionalidades inspiradas en redes 5G, garantizando la seguridad de las transmisiones y funcionando sobre los componentes de un núcleo 5G standalone, buscando aprovechar su infraestructura y arquitectura.
 
-El proyecto busca ofrecer una primera solución que, en el futuro, facilite la gestión conjunta y segura de redes LoRaWAN y 5G en entornos que requieren el uso simultáneo de ambas tecnologías, como la industria, ciudades inteligentes, entre otros, sentando así una base sólida para el desarrollo de futuras iteraciones y mejoras del mismo.
+El proyecto quiere ofrecer una primera solución que, en el futuro, facilite la gestión conjunta y segura de redes LoRaWAN y 5G en entornos que requieren el uso simultáneo de ambas tecnologías, como la industria, ciudades inteligentes, entre otros, sentando así una base sólida para el desarrollo de futuras iteraciones y mejoras del mismo.
 
 ## 🎯 Objetivos
 
