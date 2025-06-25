@@ -62,7 +62,7 @@ Puedes encontrar la documentación completa en el directorio [`docs/`](docs/). T
 - 📌 [Arquitectura de la integración](docs/arquitectura.md)
 - 📌 [Protocolo de Comunicaciones Unidireccionales Seguras](docs/protocolo.md)   
 - ⚙️ [Despliegue y Configuración](docs/instalacion.md)  
-- 📜 [Licencia](licencia.md)  
+- 📜 [Licencia](LICENSE)  
 
 Para más detalles sobre el proyecto, revisa los archivos en `docs/`.
 
