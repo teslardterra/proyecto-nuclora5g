@@ -43,7 +43,7 @@ El sistema puede utilizarse en dos formas:
    Integración con el núcleo de una red 5G, aprovechando su arquitectura para ofrecer una solución IoT segura, robusta y escalable.
 
 
-Este proyecto ha sido realizado como parte del TFG de "D.A.S", alumno de la Escuela Politécnica de Ingeniería de Gijón, Universidad de Oviedo y bajo el amparo de la cátedra Thin5G de dicha universidad.
+Este proyecto ha sido realizado como parte del TFG de "D.A.S", alumno de la Escuela Politécnica de Ingeniería de Gijón, Universidad de Oviedo y bajo el amparo de la cátedra Thin5G de dicha universidad y los tutores "D.G.C" y "I.R.L"
 
 ## 📖 Documentación
 
