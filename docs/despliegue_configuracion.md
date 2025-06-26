@@ -1,4 +1,7 @@
+# Despliegue y Configuración
 Se distinguen dos casos para el despliegue, que se abordan en las siguientes secciones. En ambos, se supone un despliegue local con todos los componentes y elementos en el mismo sistema anfitrión.
+
+## Despliegue Contenerizado
 
 Para este tipo de despliegue, se supone la existencia de un núcleo 5G Standalone virtualizado mediante contenedores docker (siguiendo estándares 3GPP), desplegado en el equipo anfitrión, con al menos los siguientes componentes: NRF, AMF, AUSF, SMF, UPF, UDM y UDR. Además, se supone un sistema Linux.
 
@@ -7,22 +10,23 @@ No entra en el ámbito de este proyecto, el cómo desplegar dicho núcleo 5G sta
 Se supone, si cumple lo anterior, que los contenedores se encuentran en la misma red docker. En caso contrario, o si se desea utilizar una red distinta, puede crearse una red de contenedores y agregar contenedores a ella con los siguientes comandos (si alguno falla por problemas de permisos, agregar sudo al comienzo de cada uno):
 
 Nota: Los valores entre < > indican variables que el lector/usuario deberá sustituir con los datos necesarios.
-
-
 ### Crear red (bridge para que puedan verse entre ellos)
 ```bash
 docker network create --driver bridge <nombre_red>
 
 ### Agregar contenedores a la red
-```
+
 docker network connect <nombre_red> <id_o_nombre_del_contenedor>
+```
+
 Deberán añadirse todos los contenedores a la red, es decir, repetir el comando connect para todos los contenedores.
 
 Para conocer el nombre o ID de los contenedores desplegados, puede utilizarse el comando:
 
-
+```bash
 ### Listar contenedores
 docker ps -a
+```
 Una vez identificados los contenedores desplegados (cada núcleo 5G cuenta con sus pasos específicos de despliegue, consultar la guía correspondiente del núcleo utilizado) en su red asignada, puede configurarse la integración.
 
 En este caso, dirigirse al repositorio GitHub del proyecto y descargar el directorio despliegue-contenerizado.
@@ -46,6 +50,7 @@ Editar ahora el archivo despliegue-contenerizado/UPF/mqtt_ttn_reciver_UPF.py, mo
 
 Tras realizar los cambios, deberán copiarse las subcarpetas despliegue-contenerizado/X al interior de los contenedores correspondientes. Para ello, pueden ejecutarse los siguientes comandos:
 
+```bash
 docker cp <ruta>/despliegue-contenerizado/AMF <Id_o_nombre_contenedor_AMF>:/ 
 docker cp <ruta>/despliegue-contenerizado/AUSF <Id_o_nombre_contenedor_AUSF>:/ 
 docker cp <ruta>/despliegue-contenerizado/SMF <Id_o_nombre_contenedor_SMF>:/ 
@@ -73,7 +78,9 @@ docker cp <ruta>/despliegue-contenerizado/UDM <Id_o_nombre_contenedor_UDM>:/
 docker cp <ruta>/despliegue-contenerizado/UDR <Id_o_nombre_contenedor_UDR>:/ 
 
 ###  Copiar al NRF
-docker cp <ruta>/despliegue-contenerizado/NRF <Id_o_nombre_contenedor_NRF>:/ 
+docker cp <ruta>/despliegue-contenerizado/NRF <Id_o_nombre_contenedor_NRF>:/
+
+```
 Una vez copiadas las carpetas, se deberá abrir una ventana o pestaña de terminal nueva por cada componente, salvo el UPF que requiere dos, 8 en total (no es completamente necesario, pero ayuda a visualizar los registros y avisos durante el funcionamiento).
 
 En la correspondiente ventana escogida para cada componente, ejecutar los siguientes comandos en orden para arrancar el despliegue contenerizado:
@@ -82,6 +89,7 @@ Nota: Cerrar alguna de las ventanas implica la parada de la ejecución de la int
 
 Si es la primera vez que se realiza el arranque o despliegue en el sistema:
 
+```bash
 ###  Ventana para NRF
 docker exec -it <Id_o_nombre_contenedor_NRF> /bin/bash
 cd NRF
@@ -151,10 +159,12 @@ docker exec -it <Id_o_nombre_contenedor_UPF> /bin/bash
 cd UPF
 apt-get install -y python3-paho-mqtt
 python3 mqtt_ttn_reciver_UPF.py
+
+```
 Si se ha realizado el arranque o despliegue con anterioridad en el sistema:
-bash
-Copiar
-Editar
+
+
+```bash
 ###  Ventana para NRF
 docker exec -it <Id_o_nombre_contenedor_NRF> /bin/bash
 cd NRF
@@ -194,6 +204,8 @@ python3 server_UPF.py
 docker exec -it <Id_o_nombre_contenedor_UPF> /bin/bash
 cd UPF
 python3 mqtt_ttn_reciver_UPF.py
+
+```
 Tras esto, el despliegue está completo, pudiendo el entorno integrado recibir las transmisiones LoRaWAN sobre el núcleo 5G a través del bróker de TTN u otra red LoRaWAN, como si el núcleo 5G fuese el servidor de aplicación de la red LoRaWAN.
 
 Se recuerda que para la aceptación de transmisiones, el dispositivo IoT debe estar suscrito en la base de datos de suscriptores, realizado esto fuera de banda.
