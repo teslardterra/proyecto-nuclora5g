@@ -10,9 +10,11 @@ Nota: Los valores entre < > indican variables que el lector/usuario deberá sust
 
 
 ### Crear red (bridge para que puedan verse entre ellos)
+```bash
 docker network create --driver bridge <nombre_red>
 
 ### Agregar contenedores a la red
+```
 docker network connect <nombre_red> <id_o_nombre_del_contenedor>
 Deberán añadirse todos los contenedores a la red, es decir, repetir el comando connect para todos los contenedores.
 
