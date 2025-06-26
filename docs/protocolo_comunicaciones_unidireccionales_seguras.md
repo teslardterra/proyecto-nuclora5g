@@ -179,7 +179,7 @@ El flujo de mensajes será idéntico al flujo completo hasta el paso 13. En el p
 
 A continuación se enumeran y describen los pasos que se sucederían en la transmisión de un mensaje de datos, suponiendo que existe una sesión abierta previamente para el suscriptor y que el *SessionNonce* recibido coincide con el esperado. 
 
-![Flujo de mensajes de datos suponiendo sesión abierta con SessionNonce coincidente](sesioncorrecto.png)
+![Flujo de mensajes de datos suponiendo sesión abierta con SessionNonce coincidente](datos_sesioncorrecto.png)
 
 1. **Dispositivo Suscriptor**:
     1. Genera el mensaje de datos utilizando el mismo DerivationNonce y SessionNonce que utilizó previamente para el mensaje de autenticación y, por tanto, cifrando los campos SessionNonce y Data con la misma clave derivada.
@@ -215,7 +215,7 @@ Se presupone ahora que no existe una sesión previamente abierta para las transm
 
 El flujo de mensajes será idéntico al flujo anterior hasta el punto 3. En el punto 4.2, la comprobación fallará y el mensaje de datos será descartado. Se marcan en azul los pasos que difieren.
 
-![Flujo de mensajes de datos suponiendo sin sesión abierta](sesionfallo.png)
+![Flujo de mensajes de datos suponiendo sin sesión abierta](datos_sesionfallo.png)
 
 1. **Dispositivo Suscriptor**:
     1. Genera el mensaje de datos utilizando el mismo DerivationNonce y SessionNonce que utilizó previamente para el mensaje de autenticación y, por tanto, cifrando los campos SessionNonce y Data con la misma clave derivada.
@@ -241,7 +241,7 @@ Se presupone ahora que existe una sesión abierta, pero el campo SessionNonce de
 
 El flujo de mensajes será idéntico al flujo del primer caso hasta el punto 3. En el punto 4.4, el SessionNonce no coincidirá con el almacenado y, además, estará fuera del rango de mensajes esperado. El mensaje será descartado, la sesión permanecerá abierta y sin modificar. Se marcan en azul los pasos que difieren.
 
-![Flujo de mensajes de datos suponiendo sesión abierta con SessionNonce no coincidente y fuera de rango](sesionfallo.png)
+![Flujo de mensajes de datos suponiendo sesión abierta con SessionNonce no coincidente y fuera de rango](datos_sesionfallo.png)
 
 1. **Dispositivo Suscriptor**:
     1. Genera el mensaje de datos utilizando el mismo DerivationNonce y SessionNonce que utilizó previamente para el mensaje de autenticación y, por tanto, cifrando los campos SessionNonce y Data con la misma clave derivada.
@@ -269,7 +269,7 @@ Se presupone ahora que existe una sesión abierta, pero el campo SessionNonce de
 
 El flujo de mensajes será idéntico al flujo del primer caso hasta el punto 3. En el punto 4.4, el SessionNonce no coincidirá con el almacenado y, además, estará dentro del rango esperado. El valor del SessionNonce en la base de datos de sesiones se igualará al recibido y el SessionCounter se aumentará en [número de mensajes perdidos] + 1 veces. El sistema asume que se han perdido [SessionNonce recibido - SessionNonce almacenado] mensajes. Se marcan en azul los pasos que difieren.
 
-![Flujo de mensajes de datos suponiendo sesión abierta con SessionNonce no coincidente y dentro de rango](sesioncorrecto.png)
+![Flujo de mensajes de datos suponiendo sesión abierta con SessionNonce no coincidente y dentro de rango](datos_sesioncorrecto.png)
 
 1. **Dispositivo Suscriptor**:
     1. Genera el mensaje de datos utilizando el mismo DerivationNonce y SessionNonce que utilizó previamente para el mensaje de autenticación y, por tanto, cifrando los campos SessionNonce y Data con la misma clave derivada.
