@@ -62,7 +62,7 @@ Puedes encontrar la documentación completa en el directorio [`docs/`](docs/). T
 - 🧩 [Arquitectura de la integración](docs/arquitectura_red_integrada.md)
 - 🛡️ [Mecanismos de ciberseguridad](docs/mecanismos_ciberseguridad.md)
 - 🛰️ [Protocolo de Comunicaciones Unidireccionales Seguras](docs/protocolo_comunicaciones_unidireccionales_seguras.md)   
-- ⚙️ [Despliegue y Configuración](docs/instalacion.md)  
+- ⚙️ [Despliegue y Configuración](docs/despliegue_configuracion.md)  
 - 📜 [Licencia](LICENSE)  
 
 
