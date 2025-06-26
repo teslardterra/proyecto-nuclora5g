@@ -8,22 +8,18 @@ Se supone, si cumple lo anterior, que los contenedores se encuentran en la misma
 
 Nota: Los valores entre < > indican variables que el lector/usuario deberá sustituir con los datos necesarios.
 
-bash
-Copiar
-Editar
-# Crear red (bridge para que puedan verse entre ellos)
+
+### Crear red (bridge para que puedan verse entre ellos)
 docker network create --driver bridge <nombre_red>
 
-# Agregar contenedores a la red
+### Agregar contenedores a la red
 docker network connect <nombre_red> <id_o_nombre_del_contenedor>
 Deberán añadirse todos los contenedores a la red, es decir, repetir el comando connect para todos los contenedores.
 
 Para conocer el nombre o ID de los contenedores desplegados, puede utilizarse el comando:
 
-bash
-Copiar
-Editar
-# Listar contenedores
+
+### Listar contenedores
 docker ps -a
 Una vez identificados los contenedores desplegados (cada núcleo 5G cuenta con sus pasos específicos de despliegue, consultar la guía correspondiente del núcleo utilizado) en su red asignada, puede configurarse la integración.
 
@@ -38,13 +34,8 @@ Una vez descargado, dirigirse al archivo despliegue-contenerizado/NRF/utils_NRF.
 
 
 Ahora, dirigirse al archivo despliegue-contenerizado/AMF/utils_AMF.py y sustituir en la línea 4:
-
-python
-Copiar
-Editar
 ADDR_NRF = (socket.gethostbyname("oai-nrf"), 5050)
 por el nombre o id del contenedor NRF del lector/usuario. En la siguiente imagen se muestra este cambio. Deberá repetirse este paso para los archivos utils_X.py de los siguientes componentes: AUSF, SMF, UPF, UDM y UDR, encontrados en las direcciones despliegue-contenerizado/X/utils_X.py, siendo X el componente.
-
 
 
 Editar ahora el archivo despliegue-contenerizado/UPF/mqtt_ttn_reciver_UPF.py, modificando las líneas 10 a 15 con los datos del tópico del bróker al que estén suscritos los dispositivos IoT de los que se busque recibir las transmisiones LoRaWAN en el sistema integrado. En el caso de esta integración y por motivos explicados con anterioridad, se ha utilizado TTN. El cómo vincular dispositivos a TTN, crear tópicos y obtener los datos de usuario y contraseña, no entran dentro del ámbito de este proyecto. (Puede consultarse una guía creada por TTN en https://www.thethingsindustries.com/docs/integrations/other-integrations/mqtt/). En la siguiente imagen se muestra un ejemplo de estos cambios.
@@ -53,28 +44,26 @@ Editar ahora el archivo despliegue-contenerizado/UPF/mqtt_ttn_reciver_UPF.py, mo
 
 Tras realizar los cambios, deberán copiarse las subcarpetas despliegue-contenerizado/X al interior de los contenedores correspondientes. Para ello, pueden ejecutarse los siguientes comandos:
 
-bash
-Copiar
-Editar
-# Copiar al AMF
+
+### Copiar al AMF
 docker cp <ruta>/despliegue-contenerizado/AMF <Id_o_nombre_contenedor_AMF>:/ 
 
-# Copiar al AUSF
+### Copiar al AUSF
 docker cp <ruta>/despliegue-contenerizado/AUSF <Id_o_nombre_contenedor_AUSF>:/ 
 
-# Copiar al SMF
+###  Copiar al SMF
 docker cp <ruta>/despliegue-contenerizado/SMF <Id_o_nombre_contenedor_SMF>:/ 
 
-# Copiar al UPF
+###  Copiar al UPF
 docker cp <ruta>/despliegue-contenerizado/UPF <Id_o_nombre_contenedor_UPF>:/ 
 
-# Copiar al UDM
+###  Copiar al UDM
 docker cp <ruta>/despliegue-contenerizado/UDM <Id_o_nombre_contenedor_UDM>:/ 
 
-# Copiar al UDR
+###  Copiar al UDR
 docker cp <ruta>/despliegue-contenerizado/UDR <Id_o_nombre_contenedor_UDR>:/ 
 
-# Copiar al NRF
+###  Copiar al NRF
 docker cp <ruta>/despliegue-contenerizado/NRF <Id_o_nombre_contenedor_NRF>:/ 
 Una vez copiadas las carpetas, se deberá abrir una ventana o pestaña de terminal nueva por cada componente, salvo el UPF que requiere dos, 8 en total (no es completamente necesario, pero ayuda a visualizar los registros y avisos durante el funcionamiento).
 
@@ -83,10 +72,8 @@ En la correspondiente ventana escogida para cada componente, ejecutar los siguie
 Nota: Cerrar alguna de las ventanas implica la parada de la ejecución de la integración en ese componente, por tanto, no cerrar durante el tiempo que se desee mantener el entorno integrado en funcionamiento.
 
 Si es la primera vez que se realiza el arranque o despliegue en el sistema:
-bash
-Copiar
-Editar
-# Ventana para NRF
+
+###  Ventana para NRF
 docker exec -it <Id_o_nombre_contenedor_NRF> /bin/bash
 cd NRF
 apt-get update
@@ -94,7 +81,7 @@ apt-get upgrade
 apt-get install -y python3
 python3 server_NRF.py
 
-# Ventana para AMF
+###  Ventana para AMF
 docker exec -it <Id_o_nombre_contenedor_AMF> /bin/bash
 cd AMF
 apt-get update
@@ -102,7 +89,7 @@ apt-get upgrade
 apt-get install -y python3
 python3 server_AMF.py
 
-# Ventana para AUSF
+###  Ventana para AUSF
 docker exec -it <Id_o_nombre_contenedor_AUSF> /bin/bash
 cd AUSF
 apt-get update
@@ -110,7 +97,7 @@ apt-get upgrade
 apt-get install -y python3
 python3 server_AUSF.py
 
-# Ventana para SMF
+###  Ventana para SMF
 docker exec -it <Id_o_nombre_contenedor_SMF> /bin/bash
 cd SMF
 apt-get update
@@ -121,7 +108,7 @@ apt-get install python3-cryptography
 python3 create_SessionsLoRa_db.py
 python3 server_SMF.py
 
-# Ventana para UDM
+###  Ventana para UDM
 docker exec -it <Id_o_nombre_contenedor_UDM> /bin/bash
 cd UDM
 apt-get update
@@ -129,7 +116,7 @@ apt-get upgrade
 apt-get install -y python3
 python3 server_UDM.py
 
-# Ventana para UDR
+###  Ventana para UDR
 docker exec -it <Id_o_nombre_contenedor_UDR> /bin/bash
 cd UDR
 apt-get update
@@ -142,7 +129,7 @@ python3 create_SubscribersLoRa_db.py
 python3 create_TransmissionsLoRa_db.py
 python3 server_UDR.py
 
-# Ventana para UPF 1
+###  Ventana para UPF 1
 docker exec -it <Id_o_nombre_contenedor_UPF> /bin/bash
 cd UPF
 apt-get update
@@ -150,7 +137,7 @@ apt-get upgrade
 apt-get install -y python3
 python3 server_UPF.py
 
-# Ventana para UPF 2
+###  Ventana para UPF 2
 docker exec -it <Id_o_nombre_contenedor_UPF> /bin/bash
 cd UPF
 apt-get install -y python3-paho-mqtt
@@ -159,42 +146,42 @@ Si se ha realizado el arranque o despliegue con anterioridad en el sistema:
 bash
 Copiar
 Editar
-# Ventana para NRF
+###  Ventana para NRF
 docker exec -it <Id_o_nombre_contenedor_NRF> /bin/bash
 cd NRF
 python3 server_NRF.py
 
-# Ventana para AMF
+###  Ventana para AMF
 docker exec -it <Id_o_nombre_contenedor_AMF> /bin/bash
 cd AMF
 python3 server_AMF.py
 
-# Ventana para AUSF
+###  Ventana para AUSF
 docker exec -it <Id_o_nombre_contenedor_AUSF> /bin/bash
 cd AUSF
 python3 server_AUSF.py
 
-# Ventana para SMF
+###  Ventana para SMF
 docker exec -it <Id_o_nombre_contenedor_SMF> /bin/bash
 cd SMF
 python3 server_SMF.py
 
-# Ventana para UDM
+###  Ventana para UDM
 docker exec -it <Id_o_nombre_contenedor_UDM> /bin/bash
 cd UDM
 python3 server_UDM.py
 
-# Ventana para UDR
+###  Ventana para UDR
 docker exec -it <Id_o_nombre_contenedor_UDR> /bin/bash
 cd UDR
 python3 server_UDR.py
 
-# Ventana para UPF 1
+###  Ventana para UPF 1
 docker exec -it <Id_o_nombre_contenedor_UPF> /bin/bash
 cd UPF
 python3 server_UPF.py
 
-# Ventana para UPF 2
+###  Ventana para UPF 2
 docker exec -it <Id_o_nombre_contenedor_UPF> /bin/bash
 cd UPF
 python3 mqtt_ttn_reciver_UPF.py
