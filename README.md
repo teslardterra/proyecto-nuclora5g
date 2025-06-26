@@ -59,7 +59,7 @@ El proyecto puede utilizarse en tres formas principales:
 
 Puedes encontrar la documentación completa en el directorio [`docs/`](docs/). También puede valerse de los siguientes enlaces directos:
 
-- 📌 [Arquitectura de la integración](docs/arquitectura.md)
+- 📌 [Arquitectura de la integración](docs/arquitectura_red_integrada.md)
 - 📌 [Protocolo de Comunicaciones Unidireccionales Seguras](docs/protocolo.md)   
 - ⚙️ [Despliegue y Configuración](docs/instalacion.md)  
 - 📜 [Licencia](LICENSE)  
