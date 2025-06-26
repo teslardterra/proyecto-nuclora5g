@@ -51,14 +51,6 @@ Editar ahora el archivo despliegue-contenerizado/UPF/mqtt_ttn_reciver_UPF.py, mo
 Tras realizar los cambios, deberán copiarse las subcarpetas despliegue-contenerizado/X al interior de los contenedores correspondientes. Para ello, pueden ejecutarse los siguientes comandos:
 
 ```bash
-docker cp <ruta>/despliegue-contenerizado/AMF <Id_o_nombre_contenedor_AMF>:/ 
-docker cp <ruta>/despliegue-contenerizado/AUSF <Id_o_nombre_contenedor_AUSF>:/ 
-docker cp <ruta>/despliegue-contenerizado/SMF <Id_o_nombre_contenedor_SMF>:/ 
-docker cp <ruta>/despliegue-contenerizado/UPF <Id_o_nombre_contenedor_UPF>:/ 
-docker cp <ruta>/despliegue-contenerizado/UDM <Id_o_nombre_contenedor_UDM>:/ 
-docker cp <ruta>/despliegue-contenerizado/UDR <Id_o_nombre_contenedor_UDR>:/ 
-docker cp <ruta>/despliegue-contenerizado/NRF <Id_o_nombre_contenedor_NRF>:/ 
-
 ### Copiar al AMF
 docker cp <ruta>/despliegue-contenerizado/AMF <Id_o_nombre_contenedor_AMF>:/ 
 
