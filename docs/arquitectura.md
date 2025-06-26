@@ -77,3 +77,66 @@ Su tamaño mínimo es de 5 bytes fijos para la identificación y comprobación d
 - **Data:** Datos que se desean transmitir en función del tipo de *payload*, uso y objetivo.  
 [Sin tamaño mínimo. Tamaño máximo variable en función del SF. Capacidad mínima para al menos 46 bytes (SF12), CIFRADO]
 
+# Bases de Datos
+
+Una vez conocidos los distintos tipos de mensajes y sus campos, se pasa a describir las nuevas bases de datos, diseñadas para acomodar las necesidades del sistema integrado durante el flujo de mensajes. Los valores entre corchetes [] indican el tipo y las características del campo.
+
+## Base de Datos de Suscriptores LoRaWAN
+
+Contiene la información de autenticación de los suscriptores registrados y autorizados en la red, así como la duración máxima de las sesiones iniciadas. Esta base de datos debe ser rellenada *out of band* previamente a la comunicación. Los campos de esta base de datos se representan en la siguiente figura, posteriormente, se enumeran y detallan dichos campos.
+
+![Estructura de la base de datos de suscriptores LoRaWAN](BD_suscriptores.png)
+
+- **id:** Identificador de fila de la tabla de la base de datos. [Autoincremental, único]
+
+- **DeviceID:** Identificador único del dispositivo LoRa suscrito. [BLOB]
+
+- **PSK:** Clave del usuario/dispositivo privada y previamente compartida. [BLOB]
+
+- **Registered_at:** Fecha de registro del suscriptor en la base de datos [TIMESTAMP, autorrellenado]
+
+- **SessionDuration:** Indica el número de mensajes de datos que durarán las sesiones abiertas por el suscriptor. Negociado *out of band* en el momento del registro del dispositivo. [INTEGER]
+
+---
+
+## Base de Datos de Sesiones LoRaWAN
+
+Contiene la información de la sesión abierta mediante un mensaje de autenticación. Esta base de datos se rellena automáticamente según corresponda. Los campos de esta base de datos se ilustran en la siguiente figura, a continuación, se detallan dichos campos.
+
+![Estructura de la base de datos de sesiones LoRaWAN](BD_sesiones.png)
+
+- **id:** Identificador de fila de la tabla de la base de datos. [Autoincremental, único]
+
+- **DeviceID:** Identificador único del dispositivo LoRa cuya sesión está abierta. [BLOB]
+
+- **SessionNonce:** Valor incremental cuyo valor inicial ha sido generado aleatoriamente en el dispositivo. Utilizado para llevar el seguimiento secuencial de los mensajes recibidos.
+
+- **SessionDuration:** Duración máxima de la sesión abierta. [INTEGER]
+
+- **SessionCounter:** Contador de mensajes recibidos y/o enviados por el suscriptor durante la sesión. [INTEGER]
+
+- **SessionDerivatedKey:** Clave derivada para el cifrado y descifrado de los mensajes enviados durante la sesión. [BLOB]
+
+- **DerivationNonce:** Valor aleatorio utilizado para la derivación de la *SessionDerivatedKey*.
+
+---
+
+## Base de Datos de Transmisiones LoRaWAN
+
+Contiene los mensajes de datos recibidos correctamente, asociados al suscriptor que los ha enviado. Esta base de datos se rellena automáticamente a medida que se reciben los mensajes.
+
+**Nota:** En una implementación más realista, esta base de datos debería encontrarse fuera del núcleo tanto para evitar que mensajes de datos de usuarios finales accedan al propio núcleo de la red, como para reducir la carga de este. En este proyecto se ha colocado en el UDR por motivos de simplificación. Los campos de esta base de datos se detallan en la siguiente figura.
+
+![Estructura de la base de datos de transmisiones LoRaWAN](BD_transmisiones.png)
+
+- **id:** Identificador de fila de la tabla de la base de datos. [Autoincremental, único]
+
+- **DeviceID:** Identificador único del dispositivo LoRa cuya sesión está abierta. [BLOB]
+
+- **Received_at:** Momento en el que se ha recibido el mensaje. [TIMESTAMP]
+
+- **Received_data:** Datos contenidos en el mensaje recibido. [BLOB]
+
+- **DataType:** Tipo de datos recibidos, coincide con el *PayloadType* de los mensajes de datos. Sirve para que quien vaya a utilizar los datos sepa cómo debe procesarlos (identifica si los datos se corresponden a temperaturas, GPS, etc.).
+
+
