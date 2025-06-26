@@ -29,7 +29,7 @@ docker ps -a
 ```
 Una vez identificados los contenedores desplegados (cada núcleo 5G cuenta con sus pasos específicos de despliegue, consultar la guía correspondiente del núcleo utilizado) en su red asignada, puede configurarse la integración.
 
-En este caso, dirigirse al repositorio GitHub del proyecto y descargar el directorio despliegue-contenerizado.
+En este caso, descargar del repositorio el directorio despliegue-contenerizado.
 
 El contenido del directorio sigue la estructura mostrada en la siguiente imagen, contando con una carpeta para cada componente del núcleo 5G, con los archivos correspondientes a agregar a dichos componentes.
 
@@ -51,6 +51,14 @@ Editar ahora el archivo despliegue-contenerizado/UPF/mqtt_ttn_reciver_UPF.py, mo
 Tras realizar los cambios, deberán copiarse las subcarpetas despliegue-contenerizado/X al interior de los contenedores correspondientes. Para ello, pueden ejecutarse los siguientes comandos:
 
 ```bash
+docker cp <ruta>/despliegue-contenerizado/AMF <Id_o_nombre_contenedor_AMF>:/ 
+docker cp <ruta>/despliegue-contenerizado/AUSF <Id_o_nombre_contenedor_AUSF>:/ 
+docker cp <ruta>/despliegue-contenerizado/SMF <Id_o_nombre_contenedor_SMF>:/ 
+docker cp <ruta>/despliegue-contenerizado/UPF <Id_o_nombre_contenedor_UPF>:/ 
+docker cp <ruta>/despliegue-contenerizado/UDM <Id_o_nombre_contenedor_UDM>:/ 
+docker cp <ruta>/despliegue-contenerizado/UDR <Id_o_nombre_contenedor_UDR>:/ 
+docker cp <ruta>/despliegue-contenerizado/NRF <Id_o_nombre_contenedor_NRF>:/ 
+
 ### Copiar al AMF
 docker cp <ruta>/despliegue-contenerizado/AMF <Id_o_nombre_contenedor_AMF>:/ 
 
@@ -202,4 +210,68 @@ Tras esto, el despliegue está completo, pudiendo el entorno integrado recibir l
 
 Se recuerda que para la aceptación de transmisiones, el dispositivo IoT debe estar suscrito en la base de datos de suscriptores, realizado esto fuera de banda.
 
+
+## Despliegue No Contenerizado
+
+Este tipo de despliegue, más sencillo que el anterior, supone que el sistema anfitrión posee un núcleo 5G SA no contenerizado, ejecutándose todos sus componentes en el anfitrión de forma directa, o que se desea hacer un despliegue como gestor independiente de transmisiones LoRaWAN, es decir, sin un núcleo 5G (manteniendo las aportaciones del nuevo protocolo en cuanto a seguridad y gestión, pero no las de independencia y hardware de un núcleo 5G SA 3GPP).
+
+Descargar el directorio `despliegue-no-contenerizado`, el cual contiene una subcarpeta nombrada como cada componente de un núcleo 5G SA. Para este despliegue no contenerizado, no importa dónde se sitúen los directorios en el sistema, quedando a disposición del lector/usuario.
+
+Deben instalarse varias dependencias generales para el funcionamiento. Puede realizarse con los siguientes comandos:
+
+```bash
+apt-get update
+apt-get upgrade
+apt-get install -y python3
+apt-get install -y pip
+apt-get install python3-cryptography
+pip install pycryptodome --break-system-packages # Nota: Si no desea sobreescribir el entorno existente de Python puede crear un entorno nuevo (o sustituir este comando por sudo apt-get install python3-pycryptodome, pero no siempre funciona).
+apt-get install -y python3-paho-mqtt
+Modificar el archivo despliegue-no-contenerizado/UPF/mqtt_ttn_reciver_UPF.py, modificando las líneas 10 a 15 con los datos del tópico del bróker al que estén suscriptos los dispositivos IoT de los que se busque recibir las transmisiones LoRaWAN en el sistema. El cómo vincular dispositivos a TTN, crear tópicos y obtener los datos de usuario y contraseña, no entran dentro del ámbito de este proyecto. (Puede consultarse una guía creada por TTN en https://www.thethingsindustries.com/docs/integrations/other-integrations/mqtt/).
+
+A continuación un ejemplo de los cambios a realizar en dicho archivo:
+
+
+
+Ahora, abrir una ventana o pestaña de terminal nueva por cada componente, salvo el UPF que requiere dos, 8 en total (no es completamente necesario, pero ayuda a visualizar los registros y avisos durante el funcionamiento).
+
+Finalmente, en este tipo de despliegue no contenerizado, basta con ejecutar los siguientes comandos, en su correspondiente ventana o pestaña, para el arranque del sistema:
+
+Nota: Cerrar alguna de las ventanas implica la parada de la ejecución de la integración en ese componente, por tanto, no cerrar durante el tiempo que se desee mantener el entorno integrado en funcionamiento.
+
+bash
+Copiar
+Editar
+# Ventana para NRF
+cd <ruta donde se encuentre la carpeta despliegue-no-contenerizado>/NRF
+python3 server_NRF.py
+
+# Ventana para AMF
+cd <ruta donde se encuentre la carpeta despliegue-no-contenerizado>/AMF
+python3 server_AMF.py
+
+# Ventana para AUSF
+cd <ruta donde se encuentre la carpeta despliegue-no-contenerizado>/AUSF
+python3 server_AUSF.py
+
+# Ventana para SMF
+cd <ruta donde se encuentre la carpeta despliegue-no-contenerizado>/SMF
+python3 create_SessionsLoRa_db.py
+python3 server_SMF.py
+
+# Ventana para UDM
+cd <ruta donde se encuentre la carpeta despliegue-no-contenerizado>/UDM
+python3 server_UDM.py
+
+# Ventana para UDR
+cd <ruta donde se encuentre la carpeta despliegue-no-contenerizado>/UDR
+python3 server_UDR.py
+
+# Ventana para UPF 1
+cd <ruta donde se encuentre la carpeta despliegue-no-contenerizado>/UPF
+python3 server_UPF.py
+
+# Ventana para UPF 2
+cd <ruta donde se encuentre la carpeta despliegue-no-contenerizado>/UPF
+python3 mqtt_ttn_reciver_UPF.py
 
