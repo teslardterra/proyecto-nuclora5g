@@ -32,6 +32,7 @@ Una vez identificados los contenedores desplegados (cada núcleo 5G cuenta con s
 En este caso, descargar del repositorio el directorio despliegue-contenerizado.
 
 El contenido del directorio sigue la estructura mostrada en la siguiente imagen, contando con una carpeta para cada componente del núcleo 5G, con los archivos correspondientes a agregar a dichos componentes.
+![estructura del directorio](estructuraDirectorio.png)
 
 
 
