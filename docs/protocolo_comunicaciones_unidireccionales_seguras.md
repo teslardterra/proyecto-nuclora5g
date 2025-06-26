@@ -2,7 +2,7 @@
 
 A continuación se enumeran y describen los pasos que se sucederían en la transmisión de un mensaje de autenticación, suponiendo la correcta superación de todos los niveles de autenticación. Los encabezados indican el elemento actuando en cada momento. Además, en la siguiente figura se detalla un esquema simplificado del recorrido del mensaje a lo largo de los elementos que componen la red integrada segura.
 
-![Flujo de mensajes de autenticación suponiendo autenticación exitosa](todocorrecto.png)
+![Flujo de mensajes de autenticación suponiendo autenticación exitosa](auth_todocorrecto.png)
 
 1. **Dispositivo Suscriptor**:
     1. Genera `DerivationNonce` y `SessionNonce`.
@@ -72,7 +72,7 @@ Se presupone ahora que existe un fallo en el primer nivel de autenticación, es 
 
 El flujo de mensajes será idéntico al flujo completo hasta el paso 6. En el paso 7, el UDR fallará al buscar el `DeviceID` y contestará al UDM y, a su vez, este al AMF con la cadena `FL_FAILURE`. El AMF descarta el mensaje de autenticación al no haberse superado el primer nivel de autenticación. Se marcan en azul los pasos que difieren.
 
-![Flujo de mensajes de autenticación suponiendo fallo en el primer nivel de autenticación](falloFL.png)
+![Flujo de mensajes de autenticación suponiendo fallo en el primer nivel de autenticación](auth_falloFL.png)
 
 1. **Dispositivo Suscriptor**:
     1. Genera `DerivationNonce` y `SessionNonce`.
@@ -117,7 +117,7 @@ Se presupone ahora un fallo en el segundo nivel de autenticación, es decir, el 
 
 El flujo de mensajes será idéntico al flujo completo hasta el paso 13. En el paso 14, el AUSF fallará al comprobar que el `HICC` descifrado se corresponde con el generado a partir del hash obtenido del mensaje con campos descifrados a partir de la clave generada. Fallo en el segundo nivel de autenticación, se descarta el mensaje de autenticación. Se marcan en azul los pasos que difieren.
 
-![Flujo de mensajes de autenticación suponiendo fallo en el segundo nivel de autenticación](falloSL.png)
+![Flujo de mensajes de autenticación suponiendo fallo en el segundo nivel de autenticación](auth_falloSL.png)
 
 1. **Dispositivo Suscriptor**:
     1. Genera `DerivationNonce` y `SessionNonce`.
