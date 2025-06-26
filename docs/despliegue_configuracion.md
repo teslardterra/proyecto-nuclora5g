@@ -31,21 +31,16 @@ Una vez identificados los contenedores desplegados (cada núcleo 5G cuenta con s
 
 En este caso, descargar del repositorio el directorio despliegue-contenerizado.
 
-El contenido del directorio sigue la estructura mostrada en la siguiente imagen, contando con una carpeta para cada componente del núcleo 5G, con los archivos correspondientes a agregar a dichos componentes.
-![estructura del directorio](estructuraDirectorio.png)
 
-
-
-Una vez descargado, dirigirse al archivo despliegue-contenerizado/NRF/utils_NRF.py y abrirlo con un editor de texto o código. Modificar las líneas 33 a 38 (función return_addresses), cambiando los nombres de los contenedores de ejemplo oai-upf, oai-smf, etc. con los correspondientes a los contenedores desplegados por el lector/usuario. Ejemplo: oai-smf pasa a mi_upf (ver nombres de sus contenedores ejecutando el comando docker ps -a en la terminal). El NRF utiliza esta información para descubrir las direcciones en la red (variables por redundancia) de los distintos componentes del núcleo. En la siguiente imagen se muestra el lugar en el que deben realizarse estos cambios.
-
+Una vez descargado, dirigirse al archivo despliegue-contenerizado/NRF/utils_NRF.py y abrirlo con un editor de texto o código. Modificar las líneas 33 a 38 (función return_addresses), cambiando los nombres de los contenedores de ejemplo oai-upf, oai-smf, etc. con los correspondientes a los contenedores desplegados por el lector/usuario. Ejemplo: oai-smf pasa a mi_upf (ver nombres de sus contenedores ejecutando el comando docker ps -a en la terminal). El NRF utiliza esta información para descubrir las direcciones en la red (variables por redundancia) de los distintos componentes del núcleo. 
 
 
 Ahora, dirigirse al archivo despliegue-contenerizado/AMF/utils_AMF.py y sustituir en la línea 4:
 ADDR_NRF = (socket.gethostbyname("oai-nrf"), 5050)
-por el nombre o id del contenedor NRF del lector/usuario. En la siguiente imagen se muestra este cambio. Deberá repetirse este paso para los archivos utils_X.py de los siguientes componentes: AUSF, SMF, UPF, UDM y UDR, encontrados en las direcciones despliegue-contenerizado/X/utils_X.py, siendo X el componente.
+por el nombre o id del contenedor NRF del lector/usuario. Deberá repetirse este paso para los archivos utils_X.py de los siguientes componentes: AUSF, SMF, UPF, UDM y UDR, encontrados en las direcciones despliegue-contenerizado/X/utils_X.py, siendo X el componente.
 
 
-Editar ahora el archivo despliegue-contenerizado/UPF/mqtt_ttn_reciver_UPF.py, modificando las líneas 10 a 15 con los datos del tópico del bróker al que estén suscritos los dispositivos IoT de los que se busque recibir las transmisiones LoRaWAN en el sistema integrado. En el caso de esta integración y por motivos explicados con anterioridad, se ha utilizado TTN. El cómo vincular dispositivos a TTN, crear tópicos y obtener los datos de usuario y contraseña, no entran dentro del ámbito de este proyecto. (Puede consultarse una guía creada por TTN en https://www.thethingsindustries.com/docs/integrations/other-integrations/mqtt/). En la siguiente imagen se muestra un ejemplo de estos cambios.
+Editar ahora el archivo despliegue-contenerizado/UPF/mqtt_ttn_reciver_UPF.py, modificando las líneas 10 a 15 con los datos del tópico del bróker al que estén suscritos los dispositivos IoT de los que se busque recibir las transmisiones LoRaWAN en el sistema integrado. En el caso de esta integración y por motivos explicados con anterioridad, se ha utilizado TTN. El cómo vincular dispositivos a TTN, crear tópicos y obtener los datos de usuario y contraseña, no entran dentro del ámbito de este proyecto. (Puede consultarse una guía creada por TTN en https://www.thethingsindustries.com/docs/integrations/other-integrations/mqtt/). 
 
 
 
