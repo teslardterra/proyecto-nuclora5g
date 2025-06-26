@@ -2,7 +2,7 @@
 
 A continuación se enumeran y describen los pasos que se sucederían en la transmisión de un mensaje de autenticación, suponiendo la correcta superación de todos los niveles de autenticación. Los encabezados indican el elemento actuando en cada momento. Además, en la siguiente figura se detalla un esquema simplificado del recorrido del mensaje a lo largo de los elementos que componen la red integrada segura.
 
-## Flujo de mensajes de autenticación suponiendo autenticación exitosa
+## Flujo de Mensajes - Mensaje de Autenticaci´on Suponiendo Autenticación Exitosa
 ![Flujo de mensajes de autenticación suponiendo autenticación exitosa](auth_todocorrecto.png)
 
 1. **Dispositivo Suscriptor**:
