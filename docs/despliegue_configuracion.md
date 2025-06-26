@@ -2,7 +2,7 @@ Se distinguen dos casos para el despliegue, que se abordan en las siguientes sec
 
 Para este tipo de despliegue, se supone la existencia de un núcleo 5G Standalone virtualizado mediante contenedores docker (siguiendo estándares 3GPP), desplegado en el equipo anfitrión, con al menos los siguientes componentes: NRF, AMF, AUSF, SMF, UPF, UDM y UDR. Además, se supone un sistema Linux.
 
-No entra en el ámbito de este proyecto, por ser tarea previa, el cómo desplegar dicho núcleo 5G standalone, si bien, se recomiendan opciones abiertas como los repositorios de OAI, utilizada para las pruebas y test de esta integración, o Free5GC. Ambas opciones cuentan con guías propias completas en sus respectivos repositorios y webs (OAI: https://gitlab.eurecom.fr/oai/cn5g/oai-cn5g-fed, Free5GC: https://free5gc.org/)
+No entra en el ámbito de este proyecto, el cómo desplegar dicho núcleo 5G standalone, si bien, se recomiendan opciones abiertas como los repositorios de OAI, utilizada para las pruebas y test de esta integración, o Free5GC. Ambas opciones cuentan con guías propias completas en sus respectivos repositorios y webs (OAI: https://gitlab.eurecom.fr/oai/cn5g/oai-cn5g-fed, Free5GC: https://free5gc.org/)
 
 Se supone, si cumple lo anterior, que los contenedores se encuentran en la misma red docker. En caso contrario, o si se desea utilizar una red distinta, puede crearse una red de contenedores y agregar contenedores a ella con los siguientes comandos (si alguno falla por problemas de permisos, agregar sudo al comienzo de cada uno):
 
