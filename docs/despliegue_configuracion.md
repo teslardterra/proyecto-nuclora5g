@@ -227,6 +227,7 @@ apt-get install -y pip
 apt-get install python3-cryptography
 pip install pycryptodome --break-system-packages # Nota: Si no desea sobreescribir el entorno existente de Python puede crear un entorno nuevo (o sustituir este comando por sudo apt-get install python3-pycryptodome, pero no siempre funciona).
 apt-get install -y python3-paho-mqtt
+```
 Modificar el archivo despliegue-no-contenerizado/UPF/mqtt_ttn_reciver_UPF.py, modificando las líneas 10 a 15 con los datos del tópico del bróker al que estén suscriptos los dispositivos IoT de los que se busque recibir las transmisiones LoRaWAN en el sistema. El cómo vincular dispositivos a TTN, crear tópicos y obtener los datos de usuario y contraseña, no entran dentro del ámbito de este proyecto. (Puede consultarse una guía creada por TTN en https://www.thethingsindustries.com/docs/integrations/other-integrations/mqtt/).
 
 A continuación un ejemplo de los cambios a realizar en dicho archivo:
@@ -239,9 +240,7 @@ Finalmente, en este tipo de despliegue no contenerizado, basta con ejecutar los 
 
 Nota: Cerrar alguna de las ventanas implica la parada de la ejecución de la integración en ese componente, por tanto, no cerrar durante el tiempo que se desee mantener el entorno integrado en funcionamiento.
 
-bash
-Copiar
-Editar
+```bash
 # Ventana para NRF
 cd <ruta donde se encuentre la carpeta despliegue-no-contenerizado>/NRF
 python3 server_NRF.py
@@ -274,4 +273,4 @@ python3 server_UPF.py
 # Ventana para UPF 2
 cd <ruta donde se encuentre la carpeta despliegue-no-contenerizado>/UPF
 python3 mqtt_ttn_reciver_UPF.py
-
+```
